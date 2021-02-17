@@ -33,11 +33,11 @@ def play_chess_JvJ():
     can=tk.Canvas(fen,width=width,height=height)
     can.pack(padx=5,pady=5)
 
-    frame_white=tk.Canvas(fen,width=width/2-7,height=4*c,bg='white',bd=2,relief=tk.SOLID)
+    frame_white=tk.Canvas(fen,width=width/2-7,height=c,bg='white',bd=2,relief=tk.SOLID)
     frame_white.pack_propagate(False)
     frame_white.pack(side=tk.LEFT,padx=8)
 
-    frame_black=tk.Canvas(fen,width=width/2-7,height=4*c,bg='white',bd=2,relief=tk.SOLID)
+    frame_black=tk.Canvas(fen,width=width/2-7,height=c,bg='white',bd=2,relief=tk.SOLID)
     frame_black.pack_propagate(False)
     frame_black.pack(side=tk.RIGHT,padx=8,pady=5)
     can.bind('<Button-1>',click)
@@ -145,7 +145,7 @@ def can_maj():
     iw=i
     for w in range(len(list_white_dead)):
         list_piece[i]=[tk.PhotoImage(file=('40-1-'+str(list_white_dead[w])+
-            '.png')),w%4,w//4]
+            '.png')),w%8,w//8]
         i+=1
     frame_white.delete(tk.ALL)
     for j in range(iw,i):
@@ -154,7 +154,7 @@ def can_maj():
     ib=i
     for b in range(len(list_black_dead)):
         list_piece[i]=[tk.PhotoImage(file=('40-2-'+str(list_black_dead[b])+
-            '.png')),b%4,b//4]
+            '.png')),b%8,b//8]
         i+=1
     frame_black.delete(tk.ALL)
     for j in range(ib,i):
